@@ -14,5 +14,9 @@ public class BaseSequenceType <T>  extends BaseHeader{
         return data;
     }
 
+    public int getSize(){
+        return data == null ? 0 : data.size();
+    }
+
 
 }

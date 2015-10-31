@@ -1,5 +1,7 @@
 package com.sample.myapplication.model;
 
+import com.sample.myapplication.network.ParamName;
+
 /**
  * Created by kalen on 15/7/24.
  */
@@ -9,11 +11,12 @@ public class Product {
 
     String studentSex;
 
-    String studentUrl;
+    @ParamName("studentUrl")
+    String url;
 
     @Override
     public String toString() {
-        return studentUrl + ", " + addressName;
+        return url + ", " + addressName;
     }
 
 

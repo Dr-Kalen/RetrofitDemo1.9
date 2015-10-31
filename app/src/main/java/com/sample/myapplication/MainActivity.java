@@ -25,8 +25,6 @@ public class MainActivity extends DRActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-//        Config config = Data.getConfig("的反馈是", 27);
-//        Toast.makeText(this, config.toString(), Toast.LENGTH_SHORT).show();
 
         NetworkRequest.getInstance().list(new Callback<BaseSequenceType<Product>>() {
 

@@ -1,8 +1,10 @@
 package com.sample.myapplication.network;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.Handler;
+import android.widget.Toast;
+
+import com.sample.myapplication.ntools.NetworkTools;
 
 import retrofit.Profiler;
 
@@ -15,7 +17,7 @@ public class DRProfiler implements Profiler {
         return DRApplication.getInstance().getActivity();
     }
 
-    private ProgressDialog dialog;
+//    private ProgressDialog dialog;
 
     @Override
     public Object beforeCall() {
@@ -28,9 +30,12 @@ public class DRProfiler implements Profiler {
                 if (context == null) {
                     return;
                 }
+                if (!NetworkTools.checkNetwork(context)) {
+                    Toast.makeText(context, "网络失败", Toast.LENGTH_SHORT).show();
+                }
 
 //                Toast.makeText(context, "before", Toast.LENGTH_SHORT).show();
-                dialog = ProgressDialog.show(context, "提示", "正在加载..", false);
+//                dialog = ProgressDialog.show(context, "提示", "正在加载..", false);
             }
         });
         return null;
@@ -49,7 +54,7 @@ public class DRProfiler implements Profiler {
                     return;
                 }
 //                Toast.makeText(context, "after", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+//                dialog.dismiss();
             }
         });
 
